@@ -21,5 +21,25 @@ contract Stack {
         stack = _stack;
     }
 
-    // your code here
+    function push(uint256 val) public {
+        stack.push(val);
+    }
+
+    function peek() public view returns (uint256) {
+        return stack[stack.length - 1];
+    }
+
+    function pop() public returns (uint256) {
+        uint256 last = peek();
+        stack.pop();
+        return last;
+    }
+
+    function size() public view returns (uint256) {
+        return stack.length;
+    }
+
+    function getStack() public view returns (uint256[] memory) {
+        return stack;
+    }
 }
