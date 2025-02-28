@@ -9,14 +9,13 @@ contract NestedMapping {
         4. use the 'returnNestedDetails' function to return the values of a nested data
     */
 
+    mapping (address => mapping (uint256 => bool)) public nestedBool;
+
     function setNestedDetails(address _addr, uint256 _num) public {
-        // your code here
+        nestedBool[_addr][_num] = true;
     }
 
-    function returnNestedDetails(
-        address _addr,
-        uint256 _num
-    ) public view returns (bool) {
-        // your code here
+    function returnNestedDetails(address _addr, uint256 _num) public view returns (bool) {
+        return nestedBool[_addr][_num];
     }
 }
