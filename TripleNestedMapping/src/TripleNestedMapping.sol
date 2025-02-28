@@ -9,12 +9,9 @@ contract TripleNestedMapping {
         2. The name of the mapping must be `isLoggedIn` and it should be public.
         3. Set the boolean value of the arguments to `true` in the 'setLogin' function.
     */
+    mapping (string name => mapping (uint256 password => mapping (uint256 pin => bool))) public isLoggedIn;
 
-    function setLogin(
-        string memory _name,
-        uint256 _password,
-        uint256 _pin
-    ) public {
-        // your code here
+    function setLogin(string memory _name, uint256 _password, uint256 _pin) public {
+        isLoggedIn[_name][_password][_pin] = true;
     }
 }
